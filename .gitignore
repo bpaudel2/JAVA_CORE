@@ -27,7 +27,7 @@
 hs_err_pid*
 
 # Added to ignore Eclipse project
-.classpath
-.project
-.settings
+*.classpath
+*.project
+*.settings
 
