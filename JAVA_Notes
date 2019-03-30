@@ -13,3 +13,5 @@ But you usually use IDE to write java code. Once you get one binary file for eac
 These binary file has extension .class. Java Virtual Machine (JVM) reads this class file. 
 JVM is VM that is running on your machine. JVM is extra layer on your machine. That's why 
 JAVA is write once and run everywhere. JRE sets up and creates and run JVM. 
+
+You can not have two classes with same class name in a single package. 

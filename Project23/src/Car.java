@@ -1,5 +1,6 @@
 
 // Now, car has all the method that machine has
+// Final class can not be extended.
 public class Car extends Machine {
 	// In order to override, method signature has to be sam
 	// as super class.
