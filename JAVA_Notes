@@ -1,0 +1,15 @@
+Setting things up:
+1) Install JRE. JRE is JAVA RUNTIME ENVIROMENT. JRE is needed in order to run 
+	JAVA programs. 
+2) Install JDK. JDK is JAVA DEVELOPMENT KIT. JDK allows you to create JAVA 
+	program yourself. 
+	*** Make sure match your jdk version to your jre version. ***
+3) Eclipse IDE. IDE stands for Integrated Development Enviroment. 
+
+JAVA is the most used programming language. 
+JAVA class has .java extension. JAVA is human readable. Once you write .java, then 
+you turn your JAVA file to binary file using Javac (which is part of JDK). 
+But you usually use IDE to write java code. Once you get one binary file for each java file.
+These binary file has extension .class. Java Virtual Machine (JVM) reads this class file. 
+JVM is VM that is running on your machine. JVM is extra layer on your machine. That's why 
+JAVA is write once and run everywhere. JRE sets up and creates and run JVM. 
