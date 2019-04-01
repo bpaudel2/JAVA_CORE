@@ -24,3 +24,17 @@ who is on my wifi
 RECUVA can recover permanently deleted file
 Ctrl+Q = exit your web browser
 
+Ctrl+Shift+T : TO SEE INFO ABOUT CLASS
+
+Stack and Heap:
+Stack: all the vaiables and methods created are stored in stack. 
+Stacks are FILO (First In Last Out). 
+
+Heap:
+Variable/Method stores in Stack points to objects in Heap. 
+Bank bank = new Bank(); //new Bank() is stored in heap. 
+new statement creates in Heap. 
+
+Once the variable does not point to new in Heap, then Garbage 
+collection happens. 
+
