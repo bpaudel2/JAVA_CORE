@@ -6,10 +6,8 @@ public class Greet {
 		
 		System.out.println("Please enter your name: ");
 		
-		//wait for the user to enter something
-		String name = input.nextLine(); //You can do nextInt(), nextLine() like functions here.
+		String name = input.nextLine(); 
 		
-		// Tell them what they entered
 		System.out.println("Hello: "+ name);
 	}
 }
