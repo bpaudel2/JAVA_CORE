@@ -38,3 +38,17 @@ new statement creates in Heap.
 Once the variable does not point to new in Heap, then Garbage 
 collection happens. 
 
+
+.NET Frameworks
+
+While creating first projects
+1) Select visual c#, .Net framework and you can give the path where you want to have your projects
+2) You can select the framework you want to use for .NET.
+3) And then you can write program. Your starting point is program.cs. 
+4) namespace is like package in JAVA.
+5) Once you finsih writing program, you can write click your project on solution explorer
+   and build it. While building this, it will create bin directory in your project.
+   The bin directory will have your .exe or .dll. You can directly click your either .dll or
+   .exe and run it or you can run your project from visual studio. 
+   run gitk to see changes visually
+
