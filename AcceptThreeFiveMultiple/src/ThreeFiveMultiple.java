@@ -16,7 +16,6 @@ public class ThreeFiveMultiple {
 		catch(Exception e) {
 			System.out.println("Sorry, you did not enter integer.");
 		}
-		//input.close();
 		
 	}
 }
