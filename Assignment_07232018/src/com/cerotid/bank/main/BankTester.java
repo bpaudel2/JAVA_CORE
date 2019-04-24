@@ -16,8 +16,8 @@ public class BankTester {
 		savingAccount.printAccountInfo();
 		
 		
-		Customer bikram = new Customer("Bikram");
-		Customer paudel = new Customer("Paudel");
+		Customer bikram = new Customer("Bikram", "Paudel");
+		Customer paudel = new Customer("Parker","Kern");
 		bikram.setAddress("Oklahoma");
 		paudel.setAddress("Texas");
 		List<Account> bikramAccount = new ArrayList<Account>();
@@ -32,6 +32,7 @@ public class BankTester {
 		bikram.printCustomerDetails();
 		paudel.printCustomerAccounts();
 		paudel.printCustomerDetails();
+		
 		
 		
 		
@@ -50,6 +51,8 @@ public class BankTester {
 		chase.printBankDetails();
 		bankOfAmerica.printBankDetails();
 		
+		System.out.println("-----Reading Writing Customer File-------------");
+		ReaderWriter.readWriteCustomerFile();
 		
 		
 		

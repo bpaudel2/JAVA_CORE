@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-	private String name;
+	private String firstName;
+	private String lastName;
 	private List<Account> accounts = new ArrayList<Account>();
 	private String address;
 	
-	public Customer(String name) {
-		this.name = name;
+	public Customer(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 	public void printCustomerAccounts() {
 		System.out.println(this.accounts);
@@ -20,16 +22,24 @@ public class Customer {
 		System.out.println(details);
 	}
 	
+	
 	@Override
 	public String toString() {
-		return "Customer [name=" + name + ", accounts=" + accounts + ", address=" + address + "]";
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", accounts=" + accounts + ", address="
+				+ address + "]";
 	}
-
-	public String getName() {
-		return name;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public List<Account> getAccounts() {
 		return accounts;
