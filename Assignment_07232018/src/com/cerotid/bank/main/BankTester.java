@@ -9,29 +9,30 @@ public class BankTester {
 
 	public static void main(String[] args) {
 		
-		Account checkingAccount = new Account("Checking");
-		Account savingAccount = new Account("Saving");
+		Account checkingAccount = new Account(AccountType.Checking);
+		Account savingAccount = new Account(AccountType.Saving);
+		
 		
 		checkingAccount.printAccountInfo();
 		savingAccount.printAccountInfo();
 		
 		
 		Customer bikram = new Customer("Bikram", "Paudel");
-		Customer paudel = new Customer("Parker","Kern");
+		Customer parker = new Customer("Parker","Kern");
 		bikram.setAddress("Oklahoma");
-		paudel.setAddress("Texas");
+		parker.setAddress("Texas");
 		List<Account> bikramAccount = new ArrayList<Account>();
 		bikramAccount.add(checkingAccount);
 		bikramAccount.add(savingAccount);
 		bikram.setAccounts(bikramAccount);
-		List<Account> paudelAccount = new ArrayList<Account>();
-		paudelAccount.add(savingAccount);
-		paudel.setAccounts(paudelAccount);
+		List<Account> parkerAccount = new ArrayList<Account>();
+		parkerAccount.add(savingAccount);
+		parker.setAccounts(parkerAccount);
 		
 		bikram.printCustomerAccounts();
 		bikram.printCustomerDetails();
-		paudel.printCustomerAccounts();
-		paudel.printCustomerDetails();
+		parker.printCustomerAccounts();
+		parker.printCustomerDetails();
 		
 		
 		
@@ -41,8 +42,8 @@ public class BankTester {
 		List<Customer> bankOfAmericaCustomers = new ArrayList<Customer>();
 		List<Customer> chaseCustomers = new ArrayList<Customer>();
 		bankOfAmericaCustomers.add(bikram);
-		bankOfAmericaCustomers.add(paudel);
-		chaseCustomers.add(paudel);
+		bankOfAmericaCustomers.add(parker);
+		chaseCustomers.add(parker);
 		bankOfAmerica.setCustomers(bankOfAmericaCustomers);
 		chase.setCustomers(chaseCustomers);
 		
@@ -51,11 +52,14 @@ public class BankTester {
 		chase.printBankDetails();
 		bankOfAmerica.printBankDetails();
 		
+		
+		
 		System.out.println("-----Reading Writing Customer File-------------");
 		ReaderWriter.readWriteCustomerFile();
 		
-		
-		
+		System.out.println("Bikram sending money from his Checking account");
+		Account bikramsCheckingAccount = bikram.getAccounts().get(0);
+		bikramsCheckingAccount.sendMoney();
 
 	}
 
