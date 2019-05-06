@@ -3,26 +3,22 @@ package com.cerotid.bank.model;
 public class Transaction {
 	protected double amount;
 	protected double fee;
-	protected int sendingAccountNumber;
-	protected String receiverFirstName;
-	protected String receiverLastName;
+	protected String senderAccountNumber;
+	protected String receiverAccountNumer;
 	
-	public Transaction(int sendingAccountNumber, double amount, double fee, String receiverFirstName, String receiverLastName) {
-		this.sendingAccountNumber = sendingAccountNumber;
+	public Transaction(String senderAccountNumber, String receiverAccountNumber, double amount, double fee) {
+		this.senderAccountNumber = senderAccountNumber;
+		this.receiverAccountNumer = receiverAccountNumber;
 		this.amount = amount;
 		this.fee = fee;
-		this.receiverFirstName = receiverFirstName;
-		this.receiverLastName = receiverLastName;
 	}
 	
 	
-
 	@Override
 	public String toString() {
-		return "Transaction [amount=" + amount + ", fee=" + fee + ", sendingAccountNumber=" + sendingAccountNumber
-				+ ", receiverFirstName=" + receiverFirstName + ", receiverLastName=" + receiverLastName + "]";
+		return "Transaction [amount=" + amount + ", fee=" + fee + ", senderAccountNumber=" + senderAccountNumber
+				+ ", receiverAccountNumer=" + receiverAccountNumer + "]";
 	}
-
 
 
 	public void createTransaction() {

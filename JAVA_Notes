@@ -52,3 +52,13 @@ While creating first projects
    .exe and run it or you can run your project from visual studio. 
    run gitk to see changes visually
 
+
+username and password: ghimirebishal26@hotmail.com, CerotidOnline
+
+EQUALS AND HASHCODE;
+1) Two classes with same properties are not equal when using equals method. In real life, you have to override the equals method.
+	Equals check value
+	
+2) hascode checks location. location in heap
+3) So, first generate equals and hascode by right clicking. Now, your equals makes sense. 
+

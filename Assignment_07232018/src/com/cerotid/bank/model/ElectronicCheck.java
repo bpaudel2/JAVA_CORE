@@ -4,8 +4,8 @@ public class ElectronicCheck extends Transaction {
 	private CheckType checkType;
 	
 	
-	public ElectronicCheck(int sendingAccountNumber, double amount, double fee, String receiverFirstName, String receiverLastName, CheckType checkType) {
-		super(sendingAccountNumber, amount, fee, receiverFirstName, receiverLastName);
+	public ElectronicCheck(String senderAccountNumber, String receiverAccountNumber, double amount, double fee,CheckType checkType) {
+		super(senderAccountNumber, receiverAccountNumber, amount, fee);
 		this.checkType = checkType;
 	}
 
@@ -14,12 +14,14 @@ public class ElectronicCheck extends Transaction {
 		System.out.println("Transaction Competed using "+this.toString());
 		
 	}
-	
+
 	@Override
 	public String toString() {
-		return "ElectronicCheck [sendingAccountNumber=" +sendingAccountNumber + ", amount=" + amount + ", fee=" + fee + ", "
-				+ "receiverFirstName=" + receiverFirstName + ", receiverLastName=" + receiverLastName + ", "
-				+ "checkType=" + checkType+  "]";
+		return "ElectronicCheck [checkType=" + checkType + "]";
 	}
+	
+	
+	
+	
 
 }
