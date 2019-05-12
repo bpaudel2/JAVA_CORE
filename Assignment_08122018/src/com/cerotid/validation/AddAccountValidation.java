@@ -1,37 +1,41 @@
 package com.cerotid.validation;
 
-import com.cerotid.bank.model.Bank;
 import com.cerotid.bank.model.Customer;
-import com.cerotid.bo.BankBOImpl;
 
-public class AddAccountValidation extends Exception{
-
+public class AddAccountValidation extends Exception {
 	/**
 	 * 
 	 */
 	
+
 	private static final long serialVersionUID = 8374409011330901864L;
-	
+
 	public AddAccountValidation(String message) {
 		super(message);
+
+	}
+
+	public static void validateUserInput(Customer customer, String accountTypeInput) throws AddAccountValidation {
+		StringBuilder validateMessage = new StringBuilder("");	
+		validateIfAccountNumberAllDigits(validateMessage, accountTypeInput);
+		validateIfCustomerPresent(validateMessage, customer);
+		summarizeValidation(validateMessage);
+	}
+
+	private static void summarizeValidation(StringBuilder validateMessage) throws AddAccountValidation {
+		if (validateMessage.length() != 0) 
+			throw new AddAccountValidation(validateMessage.toString());
+	}
+
+	private static void validateIfCustomerPresent(StringBuilder validateMessage, Customer customer) {
+		if (customer == null) 
+			validateMessage.append("Customer does not exist.\n");
 		
 	}
-	
-	public static boolean validateUserInput(Customer customer, String accountChose) throws AddAccountValidation {
-		StringBuilder message = new StringBuilder("");	
-		
-		if (!accountChose.matches("[0-9]+")){
-			message.append("Please provide Account Choice in number.\n");
-		}
-		if(customer==null) {
-			message.append("Customer does not exist.\n");
-		}
-		if (message.length()==0) {
-			return true;
-		}
-		else {
-			throw new AddAccountValidation(message.toString());
-		}
+
+	private static void validateIfAccountNumberAllDigits(StringBuilder validateMessage, String accountChose) {
+		if (!accountChose.matches("[0-9]+"))
+			validateMessage.append("Please provide Account Choice in number.\n");
 	}
 
 }

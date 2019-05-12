@@ -11,7 +11,7 @@ public class CustomerValidation extends Exception{
 		super(message);		
 	}
 	
-	public static boolean validateUserInput(String firstName, String lastName, String ssn, 
+	public static void validateUserInput(String firstName, String lastName, String ssn, 
 			String street, String city, String state) throws CustomerValidation {
 		StringBuilder message = new StringBuilder("");		
 		if (firstName.length()==0) {
@@ -34,9 +34,7 @@ public class CustomerValidation extends Exception{
 		}
 		if(message.length()!=0) {
 			throw new CustomerValidation(message.toString());
-		}else {
-			return true;
-		}			
+		}		
 	}
 	
 }

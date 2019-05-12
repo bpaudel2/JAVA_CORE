@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
 
+import com.cerotid.bank.factory.ValidatorFactory;
 import com.cerotid.bank.model.Account;
 import com.cerotid.bank.model.AccountType;
 import com.cerotid.bank.model.Address;
@@ -26,6 +27,7 @@ import com.cerotid.validation.TransactionValidation;
 
 public class BankUI {
 	private BankBO bankInterface;
+	private ValidatorFactory validationFactory = new ValidatorFactory(); // In order to object for validation
 
 	public static void main(String[] args) {
 		BankUI bankUI = new BankUI();
@@ -217,11 +219,11 @@ public class BankUI {
 		String ssn = inputForAddAccount.nextLine();
 		System.out.println("Choose Account type: [Default is Checking Account]");
 		System.out.println("1. Checking  2. Saving  3. Business Checking");
-		String accountChose = inputForAddAccount.nextLine();
+		String accountTypeInput = inputForAddAccount.nextLine();
 		Customer customer = bankInterface.getCustomerInfo(ssn);
-		AddAccountValidation.validateUserInput(customer, accountChose);
+		AddAccountValidation.validateUserInput(customer, accountTypeInput);
 		Dictionary<String, Serializable> validInputHolder = new Hashtable<String, Serializable>();
-		int accountChoseInt = Integer.parseInt(accountChose);
+		int accountChoseInt = Integer.parseInt(accountTypeInput);
 		AccountType accountType = getAccountType(accountChoseInt);
 		validInputHolder.put("customer", customer);
 		validInputHolder.put("accountType", accountType);
@@ -248,7 +250,9 @@ public class BankUI {
 		Account receivingAccount = getUserInputForAccountNumber();
 		System.out.println("Please enter amount you like to deposit.");
 		String depositAmount = depositMoneyInput.nextLine();
-		DepositMoneyValidation.validateUserInput(receivingAccount, depositAmount);
+		DepositMoneyValidation depositMoneyValidation = (DepositMoneyValidation) ValidatorFactory
+				.getObjectForValidation("DepositMoneyValidation");
+		depositMoneyValidation.validateUserInput(receivingAccount, depositAmount);
 		Dictionary<String, Serializable> validUserInputForDepositMoney = new Hashtable<String, Serializable>();
 		validUserInputForDepositMoney.put("receivingAccount", receivingAccount);
 		validUserInputForDepositMoney.put("receivingAmount", Double.parseDouble(depositAmount));
@@ -264,11 +268,13 @@ public class BankUI {
 		Account receivingAccount = getUserInputForAccountNumber();
 		System.out.println("Please enter amount you like to send.");
 		String sendingAmount = sendingAmountInput.nextLine();
-		SendingMoneyValidation.validateUserInput(sendingAccount, receivingAccount, sendingAmount);
+		SendingMoneyValidation sendingMoneyValidation = (SendingMoneyValidation) ValidatorFactory
+				.getObjectForValidation("SendingMoneyValidation");
+		sendingMoneyValidation.validateUserInput(sendingAccount, receivingAccount, sendingAmount);
 		Transaction transaction = userInputForTransaction(sendingAccount.getAccountNumber().toString(),
 				receivingAccount.getAccountNumber().toString(), sendingAmount);
 		Dictionary<String, Serializable> validInputHolder = new Hashtable<String, Serializable>();
-		validInputHolder.put("receivingAccount",  receivingAccount);
+		validInputHolder.put("receivingAccount", receivingAccount);
 		validInputHolder.put("sendingAmount", Double.parseDouble(sendingAmount));
 		validInputHolder.put("transaction", transaction);
 		validInputHolder.put("sendingAccount", sendingAccount);
